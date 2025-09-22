@@ -1,0 +1,30 @@
+from selenium import webdriver
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+from locators import Locators
+
+
+def test_happy_path_success_transition_in_constructor_to_sauce_page_on_main_page():
+    driver = webdriver.Chrome()
+    driver.get('https://stellarburgers.nomoreparties.site/')
+    driver.find_element(*Locators.SAUCE_BUTTON).click()
+    first_sauce = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.FIRST_SAUSE))
+    assert first_sauce.is_displayed()
+    driver.quit()
+
+def test_happy_path_success_transition_in_constructor_to_bun_page_on_main_page():
+    driver = webdriver.Chrome()
+    driver.get('https://stellarburgers.nomoreparties.site/')
+    driver.find_element(*Locators.SAUCE_BUTTON).click()
+    driver.find_element(*Locators.BUN_BUTTON).click()
+    first_bun = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.FIRST_BUN))
+    assert first_bun.is_displayed()
+    driver.quit()
+
+def test_happy_path_success_transition_in_constructor_to_topping_page_on_main_page():
+    driver = webdriver.Chrome()
+    driver.get('https://stellarburgers.nomoreparties.site/')
+    driver.find_element(*Locators.TOPPING_BUTTON).click()
+    first_topping = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.FIRST_TOPPING))
+    assert first_topping.is_displayed()
+    driver.quit()
