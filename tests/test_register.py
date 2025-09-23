@@ -1,8 +1,6 @@
-from selenium import webdriver
 from selenium.webdriver import Keys
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-import random
 from locators import Locators
 import pytest
 from urls import URLS
@@ -19,7 +17,6 @@ class TestStellarsBurgersRegister:
         )
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.ENTER_BUTTON))
         assert driver.current_url == URLS.login_url
-        driver.quit()
 
     def test_invalid_path_register_with_empty_name_field(self, driver, fill_common_fields):
         fill_common_fields(

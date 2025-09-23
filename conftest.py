@@ -1,3 +1,5 @@
+from multiprocessing.resource_tracker import register
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions
