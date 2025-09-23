@@ -28,15 +28,13 @@ class TestStellarsBurgersRegister:
         assert driver.current_url != URLS.login_url
         driver.quit()
 
-def test_invalid_path_register_with_invalid_email_no_domain():
-    driver = webdriver.Chrome()
-    driver.get('https://stellarburgers.nomoreparties.site/register')
-    driver.find_element(*Locators.NAME_INPUT_LOCATOR).send_keys("Александр")
-    driver.find_element(*Locators.EMAIL_INPUT_LOCATOR).send_keys(f"alexdmiterko30{random.randint(100, 999)}")
-    driver.find_element(*Locators.PASSWORD_INPUT_LOCATOR).send_keys("123456yapraktikum")
-    driver.find_element(*Locators.REGISTER_BUTTON).click()
-    assert driver.current_url != 'https://stellarburgers.nomoreparties.site/login'
-    driver.quit()
+    def test_invalid_path_register_with_invalid_email_no_domain(self, driver, fill_common_fields):
+        fill_common_fields(
+            name=Data.valid_name,
+            email=Data.random_invalid_mail,
+            password=Data.valid_password
+        )
+        assert driver.current_url != URLS.login_url
 
     @pytest.mark.parametrize('password', Data.invalid_passwords)
     def test_invalid_path_register_with_invalid_password_no_6_symbols(self, password):
