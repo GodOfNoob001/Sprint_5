@@ -43,7 +43,10 @@ class TestStellarsBurgersRegister:
         driver.find_element(*Locators.EMAIL_INPUT_LOCATOR).send_keys(Data.random_valid_mail)
         driver.find_element(*Locators.PASSWORD_INPUT_LOCATOR).send_keys(password)
         driver.find_element(*Locators.PASSWORD_INPUT_LOCATOR).send_keys(Keys.TAB)
-        error_element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.ERROR_FIELD))
+
+        error_element = WebDriverWait(driver, 3).until(
+            expected_conditions.visibility_of_element_located(Locators.ERROR_FIELD)
+        )
         error_text = driver.find_element(*Locators.ERROR_MESSAGE).text
         assert error_element.is_displayed()
         assert error_text == Data.error_text
