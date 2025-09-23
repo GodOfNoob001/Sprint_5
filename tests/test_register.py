@@ -48,4 +48,3 @@ class TestStellarsBurgersRegister:
         error_text = driver.find_element(*Locators.ERROR_MESSAGE).text
         assert error_element.is_displayed()
         assert error_text == Data.error_text
-        driver.quit()
