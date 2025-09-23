@@ -9,7 +9,9 @@ class TestStellaBurgersConstructor:
     def test_happy_path_success_transition_in_constructor_to_sauce_page_on_main_page(self, open_session):
 
         open_session.find_element(*Locators.SAUCE_BUTTON).click()
-        first_sauce = WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.FIRST_SAUSE))
+        sauce_header = WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.SAUCE_TOP))
+        first_sauce = open_session.find_element(*Locators.FIRST_SAUSE)
+        assert sauce_header.is_displayed()
         assert first_sauce.is_displayed()
 
     def test_happy_path_success_transition_in_constructor_to_bun_page_on_main_page(self, open_session):
