@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
 
 class Locators:
-    NAME_INPUT_LOCATOR = (By.XPATH, "//fieldset[1]//input[@class='text input__textfield text_type_main-default']")#Поле ввода имени на странице регистрации
-    EMAIL_INPUT_LOCATOR = (By.XPATH, "//fieldset[2]//input[@class='text input__textfield text_type_main-default']")#Поле ввода email на странице регистрации
-    PASSWORD_INPUT_LOCATOR = (By.XPATH, "//fieldset[3]//input[@class='text input__textfield text_type_main-default']")#Поле ввода пароля на странице регистрации
+    NAME_INPUT_LOCATOR = (By.XPATH, "//label[text()='Имя']/following-sibling::input")
+    EMAIL_INPUT_LOCATOR = (By.XPATH, "//label[text()='Email']/following-sibling::input")
+    PASSWORD_INPUT_LOCATOR = (By.XPATH, "//label[text()='Пароль']/following-sibling::input")
     REGISTER_BUTTON = (By.XPATH, "//button[text()='Зарегистрироваться']")#кнопка регистрации на странице регистрации
     ENTER_BUTTON = (By.XPATH, '//button[text() = "Войти"]')#Кнопка входа на странице входа в аккаунт
     ERROR_FIELD = (By.XPATH, "//div[contains(@class, 'input_status_error')]//input[@type='password']")
