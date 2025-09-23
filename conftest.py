@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import Locators
+from urls import URLS
 
 @pytest.fixture(scope="function")
 def open_session():
