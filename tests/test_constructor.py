@@ -12,14 +12,11 @@ def test_happy_path_success_transition_in_constructor_to_sauce_page_on_main_page
     assert first_sauce.is_displayed()
     driver.quit()
 
-def test_happy_path_success_transition_in_constructor_to_bun_page_on_main_page():
-    driver = webdriver.Chrome()
-    driver.get('https://stellarburgers.nomoreparties.site/')
-    driver.find_element(*Locators.SAUCE_BUTTON).click()
-    driver.find_element(*Locators.BUN_BUTTON).click()
-    first_bun = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.FIRST_BUN))
-    assert first_bun.is_displayed()
-    driver.quit()
+    def test_happy_path_success_transition_in_constructor_to_bun_page_on_main_page(self, open_session):
+        open_session.find_element(*Locators.SAUCE_BUTTON).click()
+        open_session.find_element(*Locators.BUN_BUTTON).click()
+        first_bun = WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.FIRST_BUN))
+        assert first_bun.is_displayed()
 
     def test_happy_path_success_transition_in_constructor_to_topping_page_on_main_page(self, open_session):
         open_session.find_element(*Locators.TOPPING_BUTTON).click()
