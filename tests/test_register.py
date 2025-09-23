@@ -9,14 +9,13 @@ from urls import URLS
 from data import Data
 
 class TestStellarsBurgersRegister:
-    @pytest.mark.parametrize('password', Data.valid_passwords )
-    def test_happy_path_register_with_valid_values_of_name_email_password(self, password):
-        driver = webdriver.Chrome()
-        driver.get(URLS.register_url)
-        driver.find_element(*Locators.NAME_INPUT_LOCATOR).send_keys(Data.valid_name)
-        driver.find_element(*Locators.EMAIL_INPUT_LOCATOR).send_keys(Data.random_valid_mail)
-        driver.find_element(*Locators.PASSWORD_INPUT_LOCATOR).send_keys(password)
-        driver.find_element(*Locators.REGISTER_BUTTON).click()
+    @pytest.mark.parametrize('password', Data.valid_passwords)
+    def test_happy_path_register_with_valid_values_of_name_email_password(self, driver, fill_common_fields, password):
+        fill_common_fields(
+            name=Data.valid_name,
+            email=Data.random_valid_mail,
+            password=password
+        )
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.ENTER_BUTTON))
         assert driver.current_url == URLS.login_url
         driver.quit()
