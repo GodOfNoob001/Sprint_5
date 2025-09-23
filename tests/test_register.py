@@ -14,7 +14,7 @@ class TestStellarsBurgersRegister:
     def test_happy_path_register_with_valid_values_of_name_email_password(self, driver, fill_common_fields, password):
         fill_common_fields(
             name=Data.valid_name,
-            email=Data.random_valid_mail,
+            email= random_valid_mail(),
             password=password
         )
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.ENTER_BUTTON))
