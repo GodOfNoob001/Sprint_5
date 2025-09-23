@@ -4,8 +4,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import Locators
 
-
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def open_session():
     driver = webdriver.Chrome()
     driver.get(URLS.base_url)
