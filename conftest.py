@@ -8,7 +8,7 @@ from locators import Locators
 @pytest.fixture(scope="session")
 def open_session():
     driver = webdriver.Chrome()
-    driver.get('https://stellarburgers.nomoreparties.site/')
+    driver.get(URLS.base_url)
     driver.find_element(*Locators.ENTER_BUTTON_ON_MAIN_PAGE).click()
     WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.ENTER_BUTTON))
     driver.find_element(*Locators.EMAIL_LOGIN).send_keys("alexdmiterko301212@ya.ru")
