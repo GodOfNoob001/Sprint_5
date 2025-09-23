@@ -2,6 +2,7 @@ from conftest import open_session
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import Locators
+from urls import URLS
 
 class TestStellarsBurgersLogout:
     def test_happy_path_success_logout(self, open_session):
