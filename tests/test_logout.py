@@ -9,4 +9,4 @@ class TestStellarsBurgersLogout:
         WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.EXIT_BUTTON))
         open_session.find_element(*Locators.EXIT_BUTTON).click()
         WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.ENTER_BUTTON))
-        assert open_session.current_url == 'https://stellarburgers.nomoreparties.site/login'
+        assert open_session.current_url == URLS.login_url
