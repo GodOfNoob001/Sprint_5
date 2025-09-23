@@ -38,9 +38,9 @@ class TestStellarsBurgersRegister:
         assert driver.current_url != URLS.login_url
 
     @pytest.mark.parametrize('password', Data.invalid_passwords)
-    def test_invalid_path_register_with_invalid_password_no_6_symbols(self, password):
-        driver = webdriver.Chrome()
-        driver.get(URLS.register_url)
+    def test_invalid_path_register_with_invalid_password_no_6_symbols(self, driver, password):
+        driver.find_element(*Locators.NAME_INPUT_LOCATOR).send_keys(Data.valid_name)
+        driver.find_element(*Locators.EMAIL_INPUT_LOCATOR).send_keys(Data.random_valid_mail)
         driver.find_element(*Locators.PASSWORD_INPUT_LOCATOR).send_keys(password)
         driver.find_element(*Locators.PASSWORD_INPUT_LOCATOR).send_keys(Keys.TAB)
         error_element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.ERROR_FIELD))
