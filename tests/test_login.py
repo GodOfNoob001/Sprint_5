@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import Locators
 from urls import URLS
+from data import Data
 
 class TestStellarsBurgerLogin:
     def test_happy_path_success_login_from_main_page_with_valid_values(self):
