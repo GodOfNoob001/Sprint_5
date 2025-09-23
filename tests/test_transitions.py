@@ -20,4 +20,4 @@ def test_happy_path_success_transition_from_personal_account_to_constructor_by_l
     WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.EXIT_BUTTON))
     open_session.find_element(*Locators.LOGO).click()
     WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.MAKE_AN_ORDER_BUTTON))
-    assert open_session.current_url == 'https://stellarburgers.nomoreparties.site/'
+    assert open_session.current_url == URLS.base_url
