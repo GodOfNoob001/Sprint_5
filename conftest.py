@@ -18,3 +18,22 @@ def open_session():
     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located(Locators.MAKE_AN_ORDER_BUTTON))
     yield driver
     driver.quit()
+
+@pytest.fixture(scope="function")
+def driver():
+    driver = webdriver.Chrome()
+    driver.get(URLS.register_url)
+    yield driver
+    driver.quit()
+
+@pytest.fixture(scope="function")
+def fill_common_fields(driver):
+    def _fill_fields(name="", email="", password=""):
+        if name:
+            driver.find_element(*Locators.NAME_INPUT_LOCATOR).send_keys(name)
+        if email:
+            driver.find_element(*Locators.EMAIL_INPUT_LOCATOR).send_keys(email)
+        if password:
+            driver.find_element(*Locators.PASSWORD_INPUT_LOCATOR).send_keys(password)
+        driver.find_element(*Locators.REGISTER_BUTTON).click()
+    return _fill_fields
