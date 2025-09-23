@@ -5,6 +5,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 import random
 from locators import Locators
 import pytest
+from urls import URLS
+from data import Data
 
 class TestStellarsBurgersRegister:
     @pytest.mark.parametrize('password', Data.valid_passwords )
