@@ -1,0 +1,29 @@
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+from locators import Locators
+from conftest import open_session
+
+
+class TestStellaBurgersConstructor:
+
+    def test_happy_path_success_transition_in_constructor_to_sauce_page_on_main_page(self, open_session):
+        open_session.find_element(*Locators.SAUCE_BUTTON).click()
+        sauce_header = WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.SAUCE_TOP))
+        first_sauce = open_session.find_element(*Locators.FIRST_SAUSE)
+        assert sauce_header.is_displayed()
+        assert first_sauce.is_displayed()
+
+    def test_happy_path_success_transition_in_constructor_to_bun_page_on_main_page(self, open_session):
+        open_session.find_element(*Locators.SAUCE_BUTTON).click()
+        open_session.find_element(*Locators.BUN_BUTTON).click()
+        bun_header = WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.BUN_TOP))
+        first_bun = open_session.find_element(*Locators.FIRST_BUN)
+        assert bun_header.is_displayed()
+        assert first_bun.is_displayed()
+
+    def test_happy_path_success_transition_in_constructor_to_topping_page_on_main_page(self, open_session):
+        open_session.find_element(*Locators.TOPPING_BUTTON).click()
+        topping_header = WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.TOPPING_TOP))
+        first_topping = open_session.find_element(*Locators.FIRST_TOPPING)
+        assert topping_header.is_displayed()
+        assert first_topping.is_displayed()
