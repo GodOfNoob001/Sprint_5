@@ -6,7 +6,7 @@ class Locators:
     PASSWORD_INPUT_LOCATOR = (By.XPATH, "//fieldset[3]//input[@class='text input__textfield text_type_main-default']")#Поле ввода пароля на странице регистрации
     REGISTER_BUTTON = (By.XPATH, "//button[text()='Зарегистрироваться']")#кнопка регистрации на странице регистрации
     ENTER_BUTTON = (By.XPATH, '//button[text() = "Войти"]')#Кнопка входа на странице входа в аккаунт
-    ERROR_FIELD = (By.XPATH, "//fieldset[3]//div[@class='input pr-6 pl-6 input_type_password input_size_default input_status_error']")#Поле ввода пароля на странице регистрации в состоянии ошибки
+    ERROR_FIELD = (By.XPATH, "//div[contains(@class, 'input_status_error')]//input[@type='password']")
     ERROR_MESSAGE = (By.XPATH, "//p[text() = 'Некорректный пароль']")#Сообщение об ошибке в поле пароль
     ENTER_BUTTON_ON_MAIN_PAGE = (By.XPATH, "//button[text() = 'Войти в аккаунт']")#Кнопка входа в личный аккаунт на главной странице
     EMAIL_LOGIN = (By.XPATH, "//label[text()='Email']/following-sibling::input")
