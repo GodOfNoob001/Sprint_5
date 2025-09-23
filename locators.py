@@ -23,3 +23,6 @@ class Locators:
     FIRST_BUN = (By.XPATH, "//a[@href='/ingredient/61c0c5a71d1f82001bdaaa6d']")#Первая отображаемая булка
     TOPPING_BUTTON = (By.XPATH, "//span[text()='Начинки']")#Кнопка перехода к начинкам в конструкторе
     FIRST_TOPPING = (By.XPATH, "//a[@href='/ingredient/61c0c5a71d1f82001bdaaa6f']")#Первая отображаемая начинка
+    SAUCE_TOP = (By.XPATH, "//h2[text()='Соусы']")
+    BUN_TOP = (By.XPATH, "//h2[text()='Булки']")
+    TOPPING_TOP = (By.XPATH, "//h2[text()='Начинки']")
