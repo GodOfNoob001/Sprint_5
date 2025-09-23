@@ -9,8 +9,8 @@ class Locators:
     ERROR_FIELD = (By.XPATH, "//fieldset[3]//div[@class='input pr-6 pl-6 input_type_password input_size_default input_status_error']")#Поле ввода пароля на странице регистрации в состоянии ошибки
     ERROR_MESSAGE = (By.XPATH, "//p[text() = 'Некорректный пароль']")#Сообщение об ошибке в поле пароль
     ENTER_BUTTON_ON_MAIN_PAGE = (By.XPATH, "//button[text() = 'Войти в аккаунт']")#Кнопка входа в личный аккаунт на главной странице
-    EMAIL_LOGIN = (By.XPATH, "//fieldset[1]//input[@class='text input__textfield text_type_main-default']")#Поле ввода email на странице входа
-    PASSWORD_LOGIN = (By.XPATH, "//fieldset[2]//input[@class='text input__textfield text_type_main-default']")#Поле ввода пароля на странице входа
+    EMAIL_LOGIN = (By.XPATH, "//label[text()='Email']/following-sibling::input")
+    PASSWORD_LOGIN = (By.XPATH, "//label[text()='Пароль']/following-sibling::input")
     MAKE_AN_ORDER_BUTTON = (By.XPATH, "//button[text() = 'Оформить заказ']")#Кнопка "Оформить заказ" на главной странице
     PERSONAL_ACCOUNT_BUTTON = (By.XPATH, "//p[text() = 'Личный Кабинет']")#Кнопка "Личный кабинет" на главной странице
     LOGIN_LINK_BUTTON = (By.XPATH, "//a[text() = 'Войти']")#Кнопка "войти" на странице регистрации и "забыли пароль"
