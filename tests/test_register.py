@@ -6,7 +6,7 @@ import random
 from locators import Locators
 import pytest
 from urls import URLS
-from data import Data
+from data import Data, random_valid_mail, random_invalid_mail
 from conftest import driver, fill_common_fields
 
 class TestStellarsBurgersRegister:
