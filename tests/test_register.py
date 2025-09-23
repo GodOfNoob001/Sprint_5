@@ -32,7 +32,7 @@ class TestStellarsBurgersRegister:
     def test_invalid_path_register_with_invalid_email_no_domain(self, driver, fill_common_fields):
         fill_common_fields(
             name=Data.valid_name,
-            email=Data.random_invalid_mail,
+            email= random_invalid_mail(),
             password=Data.valid_password
         )
         assert driver.current_url != URLS.login_url
