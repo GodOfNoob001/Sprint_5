@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import Locators
 
+class TestStellaBurgersConstructor:
 
     def test_happy_path_success_transition_in_constructor_to_sauce_page_on_main_page(self, open_session):
 
