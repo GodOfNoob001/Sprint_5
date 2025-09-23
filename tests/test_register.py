@@ -7,6 +7,7 @@ from locators import Locators
 import pytest
 from urls import URLS
 from data import Data
+from conftest import driver, fill_common_fields
 
 class TestStellarsBurgersRegister:
     @pytest.mark.parametrize('password', Data.valid_passwords)
