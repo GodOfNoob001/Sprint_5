@@ -20,12 +20,11 @@ class TestStellarsBurgersRegister:
         assert driver.current_url == URLS.login_url
         driver.quit()
 
-    def test_invalid_path_register_with_empty_name_field(self):
-        driver = webdriver.Chrome()
-        driver.get(URLS.register_url)
-        driver.find_element(*Locators.EMAIL_INPUT_LOCATOR).send_keys(Data.random_valid_mail)
-        driver.find_element(*Locators.PASSWORD_INPUT_LOCATOR).send_keys(Data.valid_password)
-        driver.find_element(*Locators.REGISTER_BUTTON).click()
+    def test_invalid_path_register_with_empty_name_field(self, driver, fill_common_fields):
+        fill_common_fields(
+            email=Data.random_valid_mail,
+            password=Data.valid_password
+        )
         assert driver.current_url != URLS.login_url
         driver.quit()
 
