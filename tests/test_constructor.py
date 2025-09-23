@@ -4,13 +4,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from locators import Locators
 
 
-def test_happy_path_success_transition_in_constructor_to_sauce_page_on_main_page():
-    driver = webdriver.Chrome()
-    driver.get('https://stellarburgers.nomoreparties.site/')
-    driver.find_element(*Locators.SAUCE_BUTTON).click()
-    first_sauce = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.FIRST_SAUSE))
-    assert first_sauce.is_displayed()
-    driver.quit()
+    def test_happy_path_success_transition_in_constructor_to_sauce_page_on_main_page(self, open_session):
+
+        open_session.find_element(*Locators.SAUCE_BUTTON).click()
+        first_sauce = WebDriverWait(open_session, 3).until(expected_conditions.visibility_of_element_located(Locators.FIRST_SAUSE))
+        assert first_sauce.is_displayed()
 
     def test_happy_path_success_transition_in_constructor_to_bun_page_on_main_page(self, open_session):
         open_session.find_element(*Locators.SAUCE_BUTTON).click()
